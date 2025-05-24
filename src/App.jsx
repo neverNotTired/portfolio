@@ -1,21 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import './App.css'
 
 export default function App() {
   return (
     // <>
-      <div className="min-h-screen w-screen bg-[#111a22] text-white flex flex-col font-['Space Grotesk','Noto Sans',sans-serif']">
-        <header className="border-b border-[#243647] px-10 py-3">
-          <h1 className="text-lg font-bold">Ahiru Media</h1>
-        </header>
-        <main className="flex-1 p-4">
-          <p>Hello world, React + Tailwind is working. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae ipsum quo, harum maxime ab saepe perferendis molestias nam pariatur consequatur labore quod enim totam officiis, non, expedita itaque sequi. Voluptatibus autem nisi inventore? Saepe quidem consectetur amet totam assumenda? Voluptatem velit dignissimos sapiente porro blanditiis vel enim molestiae nesciunt consequuntur facere odit fugit, modi eligendi repellendus earum, a illum est quisquam error repellat, tempore eius id. Temporibus maiores dignissimos earum alias corrupti nam dolorum dolor ipsum, recusandae a? Perspiciatis provident eveniet quisquam repellendus corporis eius error rem officiis, sed maiores, et ab, quas quasi aliquid? In ratione minus inventore, quo dicta accusantium iure dolores distinctio mollitia enim soluta non nihil sint quidem alias et. Natus atque, fugit totam necessitatibus neque, voluptates tenetur similique iure molestias quam veritatis aliquam debitis mollitia sed exercitationem possimus autem corrupti cupiditate optio quasi perspiciatis expedita facere? Similique aspernatur repellat quas velit, cum quae quasi?</p>
-        </main>
-        <footer className="text-center py-4 text-sm text-[#93adc8]">
-          &copy; 2024 Ahiru Media
-        </footer>
+      <div className="relative flex size-full_ min-h-screen flex-col bg-[#111a22] dark group/design-root _overflow-x-hidden font-['Space Grotesk','Noto Sans',sans-serif']">
+        <Header />
+        <div class="layout-container flex h-full grow flex-col overflow-x-hidden">
+          <div class="px-80 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+      </div>
+        </div>
+        <Footer />
+        </div>
       </div>
     // </>
   );
