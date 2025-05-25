@@ -37,10 +37,12 @@ const otherExperiences = [
 
 const education = [
     {
-        degree: 'Bachelor of Science',
-        major: 'Major in Computer Science',
-        school: 'University of Technology',
-        period: '2014 - 2018',
+        degree: 'Bachelor of Information Technology',
+        major: 'Majors: Computer Science; Networking & Security',
+        minor: 'Additional coursework completed for a third major in Data Analytics',
+        school: 'University of Southern Queensland (UniSQ)',
+        period: '2020 - 2025',
+        gpa: 'GPA: 6.0/7.0',
     },
 ];
 
@@ -119,7 +121,13 @@ export default function Resume() {
                                 <div className="flex flex-1 flex-col justify-center">
                                     <p className="text-white text-base font-medium leading-normal">{edu.degree}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.major}</p>
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.school}</p>
+                                    {edu.minor && (
+                                        <p className="text-[#a0adba] text-sm font-normal leading-normal italic">{edu.minor}</p>
+                                    )}
+                                    {edu.gpa && (
+                                        <p className="text-[#a0adba] text-xs font-normal leading-normal mt-1">{edu.gpa}</p>
+                                    )}
+                                    <p className="text-[#a0adba] text-sm font-normal leading-normal mt-2">{edu.school}</p>
                                 </div>
                                 <div className="shrink-0">
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.period}</p>
