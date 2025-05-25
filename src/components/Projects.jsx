@@ -1,6 +1,6 @@
 export default function Projects() {
     return (
-        <>
+        <div id="projects" className="bg-[#111a22]">
             <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">Projects</h2>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-8">
                 <div className="flex flex-col gap-3 pb-3">
@@ -47,6 +47,6 @@ export default function Projects() {
                     <span className="truncate">View All Projects</span>
                 </button>
             </div>
-        </>
+        </div>
     )
 }

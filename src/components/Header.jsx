@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll';
 import ResumeLinks from './resume/ResumeLinks';
 
 export default function Header() {
-  const isResume = window.location.pathname === "/resume";
+  const isResume = true; //window.location.pathname === "/resume";
 
   return (
     <header className="sticky top-0 z-50 bg-[#111a22] flex items-center justify-between whitespace-nowrap border-b border-solid border-t-0 border-l-0 border-r-0 border-b-[#243647] px-8 py-3">
@@ -16,15 +17,16 @@ export default function Header() {
           </div>
           <div className="flex flex-1 justify-end gap-8">
             <div className="flex items-center gap-9">
-              <a className="text-white text-sm font-medium leading-normal" href="#">About</a>
-              <a className="text-white text-sm font-medium leading-normal" href="#">Skills</a>
-              <a className="text-white text-sm font-medium leading-normal" href="#">Projects</a>
-              <Link to="/resume" className="text-white ml-4">Resume</Link>
-              <a className="text-white text-sm font-medium leading-normal" href="#">Contact</a>
+              <Link to="/#about" className="text-white text-sm font-medium leading-normal">About</Link>
+              <Link to="/#skills" className="text-white text-sm font-medium leading-normal">Skills</Link>
+              <Link to="/#projects" className="text-white text-sm font-medium leading-normal">Projects</Link>
+              <Link to="/resume" className="text-white text-sm font-medium leading-normal">Resume</Link>
+              <Link to="/#contact" className="text-white text-sm font-medium leading-normal">Contact</Link>
               {isResume && <ResumeLinks />}
             </div>
 
             <button
+              onClick={() => window.location.href = "/#contact"}
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em]"
             >
               <span className="truncate">Hire Me</span>

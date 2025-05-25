@@ -4,34 +4,42 @@ import Footer from '../components/Footer';
 
 const experiences = [
     {
-        title: 'Web Programmer',
-        company: 'Ahiru Media',
-        period: '2020 - Present',
+        title: 'Full-Stack Web Developer',
+        company: 'Pebble Design',
+        period: '2017 - Present',
         description:
-            'Developed and maintained web applications using React and Node.js. Collaborated with designers and product managers to deliver high-quality products.',
+            'Responsible for leading the back-end design (PHP, SQL, Linux based servers) of custom WordPress websites, and front-end development using JavaScript (E6), jQuery, Html, CSS, and JavaScript frameworks and packages. Implementing 3rd party API integrations such as, Booking engine APIs for hotel websites to Instagram feed APIs. Plugin development for WordPress.',
     },
     {
-        title: 'Front-End Developer',
-        company: 'Tech Solutions Inc.',
-        period: '2018 - 2020',
+        title: 'Full-Stack Web Developer',
+        company: 'Ahiru Media (Self-Employed)',
+        period: 'Freelance',
         description:
-            'Worked on front-end development using HTML, CSS, and JavaScript. Implemented responsive designs and improved website performance.',
+            'Developed and maintained web applications using React and Node.js. Wordpress CMS using Elementor. Collaborated directly with stakeholders to deliver high-quality products.',
+    },
+    {
+        title: 'Web Consultant and Developer (part-time/freelance)',
+        company: '2Descartes Pty Ltd',
+        period: '2024 – 2025',
+        description:
+            'Maintain and implement updates across all of their websites using Ruby, Html, CSS and JavaScript. Assist with any new technologies and best practice inquiries and implementation. Mobile app development using React Native.',
     },
 ];
+
 const otherExperiences = [
     {
-        title: 'Freelance Web Developer',
-        company: 'Self-Employed',
-        period: '2016 - 2018',
+        title: 'Sheet Metal Factory hand (night shift)',
+        company: 'Metroll',
+        period: '2007 - 2013, 2013 - 2017',
         description:
-            'Provided web development services to various clients, focusing on custom solutions and client satisfaction.',
+            'Manufacturing metal goods - Sheds & Roofing materials.',
     },
     {
-        title: 'Intern Software Engineer',
-        company: 'Tech Interns Ltd.',
-        period: '2015 - 2016',
+        title: 'Car Detailer',
+        company: 'BMW Motors, Currimundi, Sunshine Coast, Queensland',
+        period: '2013',
         description:
-            'Assisted in software development projects, gaining hands-on experience in coding and project management.',
+            'Restoring used cars to be resold. Washing cars after servicing.',
     },
 ];
 
@@ -44,6 +52,12 @@ const education = [
         period: '2020 - 2025',
         gpa: 'GPA: 6.0/7.0',
     },
+    {
+        degree: 'Diploma of Web Development',
+        school: 'Evocca College',
+        period: '2015 - 2017',
+    },
+    
 ];
 
 const projects = [
@@ -60,6 +74,8 @@ const projects = [
         period: '2021',
     },
 ];
+
+const professionalSummary = "I’m a self-taught programmer for the most part, coding in my free time to hone my skills ..for fun. After I landed my first job opportunely as a web developer, I realised I still had much to learn so I decided to study a degree to further enhance my knowledge and expertise.";
 
 export default function Resume() {
     return (
@@ -81,6 +97,20 @@ export default function Resume() {
                             ></div>
                         </div>
 
+                        {/* Professional Summary */}
+                        <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
+                            Professional Summary
+                        </h2>
+                        <div
+                            className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                        >
+                            <div className="flex flex-1 flex-col justify-center">
+                                <p className="text-[#a0adba] text-sm font-normal leading-normal">{professionalSummary}</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-8 border-t border-gray-700" />
+
                         {/* Skills */}
                         <Skills />
 
@@ -98,7 +128,7 @@ export default function Resume() {
                                 <div className="flex flex-1 flex-col justify-center">
                                     <p className="text-white text-base font-medium leading-normal">{exp.title}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.description}</p>
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.company}</p>
+                                    <p className="text-[#a0adba] text-sm font-semibold leading-normal mt-2">{exp.company}</p>
                                 </div>
                                 <div className="shrink-0">
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.period}</p>
@@ -107,7 +137,6 @@ export default function Resume() {
                         ))}
 
                         <hr class="my-8 border-t border-gray-700" />
-
 
                         {/* Education */}
                         <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
@@ -127,7 +156,7 @@ export default function Resume() {
                                     {edu.gpa && (
                                         <p className="text-[#a0adba] text-xs font-normal leading-normal mt-1">{edu.gpa}</p>
                                     )}
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal mt-2">{edu.school}</p>
+                                    <p className="text-[#a0adba] text-sm font-semibold leading-normal mt-2">{edu.school}</p>
                                 </div>
                                 <div className="shrink-0">
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.period}</p>
@@ -171,7 +200,7 @@ export default function Resume() {
                                 <div className="flex flex-1 flex-col justify-center">
                                     <p className="text-white text-base font-medium leading-normal">{exp.title}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.description}</p>
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.company}</p>
+                                    <p className="text-[#a0adba] text-sm font-semibold leading-normal">{exp.company}</p>
                                 </div>
                                 <div className="shrink-0">
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.period}</p>

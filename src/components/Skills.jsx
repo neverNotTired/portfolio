@@ -22,7 +22,7 @@ export default function Skills() {
     ];
 
     return (
-        <>
+        <div id="skills" className="bg-[#111a22]">
             <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
                 Skills
             </h2>
@@ -48,6 +48,6 @@ export default function Skills() {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 }

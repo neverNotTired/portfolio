@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-        <div className="@container">
+        <div id="top" className="@container">
           <div className="@[480px]:p-8">
             <div
               className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-8 pb-10 @[480px]:px-8"
