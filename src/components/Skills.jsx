@@ -18,6 +18,7 @@ export default function Skills() {
     const extraSkills = [
         { name: "React Native" },
         { name: "Python" },
+        { name: "C++" },
     ];
 
     return (

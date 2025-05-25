@@ -1,41 +1,41 @@
 export default function Contact() {
     return (
         <>
-        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">Contact</h2>
-            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
-              <label class="flex flex-col min-w-40 flex-1">
-                <p class="text-white text-base font-medium leading-normal pb-2">Name</p>
+        <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">Contact</h2>
+            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
+              <label className="flex flex-col min-w-40 flex-1">
+                <p className="text-white text-base font-medium leading-normal pb-2">Name</p>
                 <input
                   placeholder="Your Name"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none h-14 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
+                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none h-14 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
                   value=""
                 />
               </label>
             </div>
-            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
-              <label class="flex flex-col min-w-40 flex-1">
-                <p class="text-white text-base font-medium leading-normal pb-2">Email</p>
+            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
+              <label className="flex flex-col min-w-40 flex-1">
+                <p className="text-white text-base font-medium leading-normal pb-2">Email</p>
                 <input
                   placeholder="Your Email"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none h-14 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
+                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none h-14 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
                   value=""
                 />
               </label>
             </div>
-            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
-              <label class="flex flex-col min-w-40 flex-1">
-                <p class="text-white text-base font-medium leading-normal pb-2">Message</p>
+            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-8 py-3">
+              <label className="flex flex-col min-w-40 flex-1">
+                <p className="text-white text-base font-medium leading-normal pb-2">Message</p>
                 <textarea
                   placeholder="Your Message"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none min-h-36 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
+                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-white focus:outline-0 focus:ring-0 border-none bg-[#243647] focus:border-none min-h-36 placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal"
                 ></textarea>
               </label>
             </div>
-            <div class="flex px-8 py-3 justify-start">
+            <div className="flex px-8 py-3 justify-start">
               <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em]"
               >
-                <span class="truncate">Send Message</span>
+                <span className="truncate">Send Message</span>
               </button>
             </div>
         </>
