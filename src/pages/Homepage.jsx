@@ -32,8 +32,8 @@ export default function Homepage() {
     return (
         <div className="relative flex min-h-screen flex-col bg-[#111a22] dark group/design-root _overflow-x-hidden font-['Space Grotesk','Noto Sans',sans-serif']">
             <Header />
-            <div className="layout-container flex h-full grow flex-col overflow-x-hidden">
-                <div className="px-80 flex flex-1 justify-center py-5">
+            <div className="layout-container flex w-ull h-full grow flex-col overflow-x-hidden">
+                <div className="px-4 sm:px-8 md:px-16 lg:px-40 xl:px-60 2xl:px-80 flex flex-1 justify-center py-5">
                     <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
                         <Hero />
                         <About />

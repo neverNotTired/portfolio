@@ -17,9 +17,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* * {
+  outline: 1px solid red;
+} */
+
 /* #root {
     min-height: 100vh;
     width: 100vw;
+} */
+
+/* html,
+body {
+  overflow-x: hidden;
 } */
 
 a {
@@ -35,8 +44,8 @@ body {
   margin: 0;
   /* display: flex;
   place-items: center; */
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 
 h1 {
