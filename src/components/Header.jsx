@@ -20,7 +20,7 @@ export default function Header() {
               <Link to="/#about" className="text-white text-sm font-medium leading-normal hidden lg:block">About</Link>
               <Link to="/#skills" className="text-white text-sm font-medium leading-normal hidden lg:block">Skills</Link>
               <Link to="/#projects" className="text-white text-sm font-medium leading-normal hidden lg:block">Projects</Link>
-              <Link to="/resume" className="text-white text-sm font-medium leading-normal">Resume</Link>
+              <Link to="/resume" className="text-white text-sm font-medium leading-normal">Resum&eacute;</Link>
               <Link to="/#contact" className="text-white text-sm font-medium leading-normal hidden lg:block">Contact</Link>
               {isResume && <ResumeLinks />}
             </div>
