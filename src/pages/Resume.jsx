@@ -103,19 +103,19 @@ export default function Resume() {
                             Professional Summary
                         </h2>
                         <div
-                            className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                            className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                         >
                             <div className="flex flex-1 flex-col justify-center">
                                 <p className="text-[#a0adba] text-sm font-normal leading-normal">{professionalSummary}</p>
                             </div>
                         </div>
 
-                        <hr class="my-8 border-t border-gray-700" />
+                        <hr className="my-8 border-t border-gray-700" />
 
                         {/* Skills */}
                         <Skills />
 
-                        <hr class="my-8 border-t border-gray-700" />
+                        <hr className="my-8 border-t border-gray-700" />
 
                         {/* Experience */}
                         <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
@@ -124,20 +124,20 @@ export default function Resume() {
                         {experiences.map((exp) => (
                             <div
                                 key={exp.title + exp.company}
-                                className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                                className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                             >
                                 <div className="flex flex-1 flex-col justify-center">
-                                    <p className="text-white text-base font-medium leading-normal">{exp.title}</p>
+                                    <p className="text-white text-base font-medium leading-normal my-4">{exp.title}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.description}</p>
                                     <p className="text-[#a0adba] text-sm font-semibold leading-normal mt-2">{exp.company}</p>
                                 </div>
                                 <div className="shrink-0">
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.period}</p>
+                                    <p className="text-[#a0adba] text-sm font-normal leading-normal mt-4">{exp.period}</p>
                                 </div>
                             </div>
                         ))}
 
-                        <hr class="my-8 border-t border-gray-700" />
+                        <hr className="my-8 border-t border-gray-700" />
 
                         {/* Education */}
                         <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
@@ -146,10 +146,10 @@ export default function Resume() {
                         {education.map((edu) => (
                             <div
                                 key={edu.degree + edu.school}
-                                className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                                className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                             >
                                 <div className="flex flex-1 flex-col justify-center">
-                                    <p className="text-white text-base font-medium leading-normal">{edu.degree}</p>
+                                    <p className="text-white text-base font-medium leading-normal my-4">{edu.degree}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.major}</p>
                                     {edu.minor && (
                                         <p className="text-[#a0adba] text-sm font-normal leading-normal italic">{edu.minor}</p>
@@ -160,12 +160,12 @@ export default function Resume() {
                                     <p className="text-[#a0adba] text-sm font-semibold leading-normal mt-2">{edu.school}</p>
                                 </div>
                                 <div className="shrink-0">
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{edu.period}</p>
+                                    <p className="text-[#a0adba] text-sm font-normal leading-normal mt-4">{edu.period}</p>
                                 </div>
                             </div>
                         ))}
 
-                        <hr class="my-8 border-t border-gray-700" />
+                        <hr className="my-8 border-t border-gray-700" />
 
                         {/* Projects */}
                         <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
@@ -174,20 +174,20 @@ export default function Resume() {
                         {projects.map((proj) => (
                             <div
                                 key={proj.name}
-                                className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                                className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                             >
                                 <div className="flex flex-1 flex-col justify-center">
-                                    <p className="text-white text-base font-medium leading-normal">{proj.name}</p>
+                                    <p className="text-white text-base font-medium leading-normal my-4">{proj.name}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{proj.description}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{proj.details}</p>
                                 </div>
                                 <div className="shrink-0">
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{proj.period}</p>
+                                    <p className="text-[#a0adba] text-sm font-normal leading-normal my-4">{proj.period}</p>
                                 </div>
                             </div>
                         ))}
 
-                        <hr class="my-8 border-t border-gray-700" />
+                        <hr className="my-8 border-t border-gray-700" />
 
                         {/* Experience */}
                         <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
@@ -196,15 +196,15 @@ export default function Resume() {
                         {otherExperiences.map((exp) => (
                             <div
                                 key={exp.title + exp.company}
-                                className="flex gap-4 bg-[#15191e] px-8 py-3 justify-between"
+                                className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                             >
                                 <div className="flex flex-1 flex-col justify-center">
-                                    <p className="text-white text-base font-medium leading-normal">{exp.title}</p>
+                                    <p className="text-white text-base font-medium leading-normal my-4">{exp.title}</p>
                                     <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.description}</p>
                                     <p className="text-[#a0adba] text-sm font-semibold leading-normal">{exp.company}</p>
                                 </div>
                                 <div className="shrink-0">
-                                    <p className="text-[#a0adba] text-sm font-normal leading-normal">{exp.period}</p>
+                                    <p className="text-[#a0adba] text-sm font-normal leading-normal mt-4">{exp.period}</p>
                                 </div>
                             </div>
                         ))}

@@ -11,7 +11,7 @@ export default function Projects() {
                         }}
                     ></div>
                     <div>
-                        <p className="text-white text-base font-medium leading-normal mt-3">E-commerce Platform</p>
+                        <p className="text-white text-base font-medium leading-normal my-3">E-commerce Platform</p>
                         <p className="text-[#93adc8] text-sm font-normal leading-normal mb-0">
                             Developed a full-featured e-commerce platform with user authentication, product management, and payment gateway integration.
                         </p>
@@ -25,7 +25,7 @@ export default function Projects() {
                         }}
                     ></div>
                     <div>
-                        <p className="text-white text-base font-medium leading-normal mt-3">Portfolio Website</p>
+                        <p className="text-white text-base font-medium leading-normal my-3">Portfolio Website</p>
                         <p className="text-[#93adc8] text-sm font-normal leading-normal mb-0">Designed and built this personal portfolio website from scratch using ReactJS to showcase my skills and projects.</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ export default function Projects() {
                         }}
                     ></div>
                     <div>
-                        <p className="text-white text-base font-medium leading-normal mt-3">Car Log App</p>
+                        <p className="text-white text-base font-medium leading-normal my-3">Car Log App</p>
                         <p className="text-[#93adc8] text-sm font-normal leading-normal mb-0">Created a task management application with real-time updates and collaborative features.</p>
                     </div>
                 </div>

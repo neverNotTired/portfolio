@@ -10,3 +10,7 @@ body {
 p {
   margin-bottom: 20px;
 }
+
+._top-2 {
+  top: -2px !important;
+}
