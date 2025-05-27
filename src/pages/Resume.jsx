@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Skills from '../components/Skills';
 import Footer from '../components/Footer';
+import GitGraph from '../components/Gitgraph';
 
 const experiences = [
     {
@@ -208,6 +209,7 @@ export default function Resume() {
                                 </div>
                             </div>
                         ))}
+                        <GitGraph />
                     </div>
                 </div>
                 <Footer />

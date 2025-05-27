@@ -30,6 +30,57 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+app.get('/api/gitgraph', async (req, res) => {
+  const token = process.env.GITHUB_TOKEN; // You'll need to add this in your .env
+  const username = process.env.GITHUB_USERNAME || 'neverNotTired';
+
+  if (!token) {
+    return res.status(500).json({ error: 'GitHub token not configured' });
+  }
+
+  const query = `
+    {
+      user(login: "${username}") {
+        contributionsCollection {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                color
+                contributionCount
+                date
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const githubRes = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    const data = await githubRes.json();
+
+    if (data.errors) {
+      console.error('GitHub API error:', data.errors);
+      return res.status(500).json({ error: 'GitHub API error', details: data.errors });
+    }
+
+    res.json(data.data.user.contributionsCollection.contributionCalendar);
+  } catch (err) {
+    console.error('GitHub fetch error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
   console.log(`SendGrid API Key: ${process.env.SENDGRID_API_KEY ? 'Set' : 'Not Set'}`);

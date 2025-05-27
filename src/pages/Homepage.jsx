@@ -6,6 +6,7 @@ import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import GitGraph from '../components/Gitgraph';
 import Footer from '../components/Footer';
 
 export default function Homepage() {
@@ -40,6 +41,7 @@ export default function Homepage() {
                         <Skills />
                         <Projects />
                         <Contact />
+                        <GitGraph />
                     </div>
                 </div>
                 <Footer />
