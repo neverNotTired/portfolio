@@ -19,27 +19,27 @@ const experiences = [
     },
     {
         title: 'Web Consultant and Developer (part-time/freelance)',
-        company: '2Descartes Pty Ltd',
+        company: '12Descartes Pty Ltd',
         period: '2024 – 2025',
         description:
-            'Maintain and implement updates across all of their websites using Ruby, Html, CSS and JavaScript. Assist with any new technologies and best practice inquiries and implementation. Mobile app development using React Native.',
+            'Maintained and implemented updates across all of their websites using Ruby, Html, CSS and JavaScript. Assist with any new technologies and best practice inquiries and implementation. Mobile app development using React Native.',
     },
 ];
 
 const otherExperiences = [
     {
-        title: 'Sheet Metal Factory hand (night shift)',
+        title: 'Sheet Metal Factory Hand',
         company: 'Metroll',
-        period: '2007 - 2013, 2013 - 2017',
+        period: '2007 - 2017',
         description:
-            'Manufacturing metal goods - Sheds & Roofing materials.',
+            'Manufactured sheet metal goods such as sheds & roofing materials.',
     },
     {
         title: 'Car Detailer',
         company: 'BMW Motors, Currimundi, Sunshine Coast, Queensland',
         period: '2013',
         description:
-            'Restoring used cars to be resold. Washing cars after servicing.',
+            'Restoring used cars to be resold.',
     },
 ];
 
@@ -75,7 +75,7 @@ const projects = [
     },
 ];
 
-const professionalSummary = "I’m a self-taught programmer for the most part, coding in my free time to hone my skills ..for fun. After I landed my first job opportunely as a web developer, I realised I still had much to learn so I decided to study a degree to further enhance my knowledge and expertise.";
+const professionalSummary = "I am a results-driven web developer with a unique blend of self-taught programming skills and formal education. I have worked in the industry helping businesses create and maintain their websites, optimise for security, and deliver custom solutions tailored to their specific needs.";
 
 export default function Resume() {
     return (
