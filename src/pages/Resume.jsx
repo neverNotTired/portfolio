@@ -47,11 +47,11 @@ const otherExperiences = [
 const education = [
     {
         degree: 'Bachelor of Information Technology',
-        major: 'Majors: Computer Science; Networking & Security',
-        minor: 'Additional coursework completed for a third major in Data Analytics',
+        major: 'Majors: Computer Science and Networking & Security',
+        minor: false,
         school: 'University of Southern Queensland (UniSQ)',
         period: '2020 - 2025',
-        gpa: 'GPA: 6.0/7.0',
+        gpa: 'GPA: 6.24/7.0',
     },
     {
         degree: 'Diploma of Web Development',
@@ -209,6 +209,7 @@ export default function Resume() {
                                 </div>
                             </div>
                         ))}
+                        <hr className="mt-8 mb-14 border-t border-gray-700" />
                         <GitGraph />
                     </div>
                 </div>

@@ -14,7 +14,7 @@ export default function Hero() {
             >
               <div className="flex flex-col gap-2 text-left">
                 <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
-                Hello World — I'm John Taylor.
+                Hello World
                 </h1>
                 <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base mt-2">
                 I'm a full-stack developer trading as <strong className="text-white font-semibold">Ahiru Media</strong>. I help businesses and teams build clean, scalable web apps — fast.

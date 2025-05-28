@@ -35,9 +35,21 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  transition: all 0.4s;
 }
+
 a:hover {
-  color: #535bf2;
+  color: #ffffff99;
+}
+
+header a:hover svg path {
+  fill: #93adc8;
+  transition: all 0.4s;
+}
+
+footer a:hover svg path {
+  fill: #1465b7;
+  transition: all 0.4s;
 }
 
 body {
