@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skills_lists",
+  "info": {
+    "singularName": "skills-list",
+    "pluralName": "skills-lists",
+    "displayName": "Skills List"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Dabbled": {
+      "type": "boolean"
+    },
+    "SortOrder": {
+      "type": "integer"
+    }
+  }
+}
