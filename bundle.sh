@@ -44,10 +44,10 @@ rm -f ./deploy/cms/.env
 
 echo "✅ Deploy bundle is clean, built, and in /deploy"
 
-exit 0
-
 echo "🚀 Syncing deploy package to server..."
-rsync -avz ./deploy/ user@yourserver:/var/www/yourproject
+scp -r ./deploy/* root@134.199.173.55:/var/www/jmtaylor/
 
 echo "🔁 Restarting PM2 services on server..."
-ssh user@yourserver 'pm2 restart all && echo "✅ Remote services restarted."'
+ssh root@134.199.173.55 'pm2 restart all && echo "✅ PM2 restarted"'
+echo "🎉 Deployment complete!"
+exit 0

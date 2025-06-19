@@ -13,6 +13,8 @@ dist-ssr
 deploy/*
 *.local
 .env
+.env_local
+.env_production
 
 # Editor directories and files
 .vscode/*
