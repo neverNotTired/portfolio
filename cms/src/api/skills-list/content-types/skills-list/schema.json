@@ -19,6 +19,12 @@
     },
     "SortOrder": {
       "type": "integer"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "skills_lists"
     }
   }
 }
