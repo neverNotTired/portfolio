@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Scroller from './Scroller';
 
 export default function Footer() {
     return (
@@ -33,6 +34,7 @@ export default function Footer() {
               <p className="text-[#93adc8] text-base font-normal leading-normal">@2024 Ahiru Media. All rights reserved.</p>
             </footer>
           </div>
+          <Scroller />
         </footer>
     )
 }

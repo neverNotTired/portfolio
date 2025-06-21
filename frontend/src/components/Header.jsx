@@ -5,14 +5,14 @@ import ResumeLinks from './resume/ResumeLinks';
 
 export default function Header() {
   const isResume = true; //window.location.pathname === "/resume";
-  const [showFirst, setShowFirst] = useState(true);
+  // const [showFirst, setShowFirst] = useState(true);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowFirst(prev => !prev);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setShowFirst(prev => !prev);
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-[#111a22] flex items-center justify-between whitespace-nowrap border-b border-solid border-t-0 border-l-0 border-r-0 border-b-[#243647] px-8 py-3">
@@ -25,20 +25,23 @@ export default function Header() {
               <div className="relative h-8 overflow-hidden hidden sm:block">
                 <div
                   className="transition-transform duration-1000 h-8"
-                  style={{
-                    transform: showFirst ? 'translateY(0%)' : 'translateY(-100%)',
-                  }}
+                  // style={{
+                  //   transform: showFirst ? 'translateY(0%)' : 'translateY(-100%)',
+                  // }}
                 >
-                  <div className="h-8 flex items-center">
-                    <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
-                      Ahiru Media
-                    </h2>
-                  </div>
-                  <div className="h-8 flex items-center">
-                    <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
-                      John Taylor
-                    </h2>
-                  </div>
+                  {typeof window !== "undefined" && window.location.hostname === "jmtaylor.dev" || window.location.hostname === "localhost" ? (
+                    <div className="h-8 flex items-center">
+                      <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        John Taylor
+                      </h2>
+                    </div>
+                  ) : (
+                    <div className="h-8 flex items-center">
+                      <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        Ahiru Media
+                      </h2>
+                    </div>
+                  )}
                 </div>
               </div>
             </Link>
@@ -47,7 +50,8 @@ export default function Header() {
             <div className="flex items-center gap-9">
               <Link to="/#about" className="text-white text-sm font-medium leading-normal hidden lg:block">About</Link>
               <Link to="/#skills" className="text-white text-sm font-medium leading-normal hidden lg:block">Skills</Link>
-              <Link to="/#projects" className="text-white text-sm font-medium leading-normal hidden lg:block">Projects</Link>
+              <Link to="/projects" className="text-white text-sm font-medium leading-normal hidden lg:block">Projects</Link>
+              <Link to="/blog" className="text-white text-sm font-medium leading-normal hidden lg:block">Blog</Link>
               <Link to="/resume" className="text-white text-sm font-medium leading-normal">Resum&eacute;</Link>
               <Link to="/#contact" className="text-white text-sm font-medium leading-normal hidden lg:block">Contact</Link>
               {isResume && <ResumeLinks />}

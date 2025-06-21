@@ -1,4 +1,4 @@
-// import heroImage from '../assets/hero.jpg';
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
@@ -22,9 +22,9 @@ export default function Hero() {
                 Need a dev who thrives on problem-solving? Or just want your site to stop looking like it’s from 2007? Let’s talk.
                 </h2>
               </div>
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+              <Link to="/projects" className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
                 <span className="truncate">View Projects</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

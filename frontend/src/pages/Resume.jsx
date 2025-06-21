@@ -107,7 +107,7 @@ export default function Resume() {
                             className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
                         >
                             <div className="flex flex-1 flex-col justify-center">
-                                <p className="text-[#a0adba] text-sm font-normal leading-normal">{professionalSummary}</p>
+                                <p className="text-[#a0adba] text-l font-normal leading-normal">{professionalSummary}</p>
                             </div>
                         </div>
 
