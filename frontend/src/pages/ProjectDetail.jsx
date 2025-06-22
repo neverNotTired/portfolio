@@ -12,12 +12,14 @@ export default function Projects() {
   const [project, setProject] = useState(null);
 
     useEffect(() => {
+         const baseUrl = import.meta.env.VITE_API_URL;
+
         if (!documentId) {
             console.warn('documentId is undefined — fetch aborted');
             console.log("💡 documentId from useParams:", documentId);
             return;
         }
-        fetch(`http://localhost:8081/api/projects?filters[documentId][$eq]=${documentId}&populate=*`)
+        fetch(`${baseUrl}/projects?filters[documentId][$eq]=${documentId}&populate=*`)
         .then(res => res.json())
         .then(data => {
             console.log("📦 Full fetch response:", data);

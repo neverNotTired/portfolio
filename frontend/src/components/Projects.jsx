@@ -5,7 +5,12 @@ export default function Projects() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-    fetch('http://localhost:8081/api/projects?populate=Image&sort=createdAt:desc&pagination[limit]=3')
+    // const baseUrl = process.env.REACT_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_API_URL;
+    console.log("API base:", import.meta.env.VITE_API_URL);
+
+
+    fetch(`${baseUrl}/projects?populate=Image&sort=createdAt:desc&pagination[limit]=3`)
         .then(res => res.json())
         .then(data => {
         console.log('Fetched projects:', data);
@@ -25,14 +30,16 @@ export default function Projects() {
                 {projects.map(project => {
                     const attrs = project;
                     const documentId = attrs.documentId;
+                    const base_url = import.meta.env.VITE_API_URL;
 
                     const thumbnail = attrs?.Thumbnail?.url;
                     const image = attrs?.Image?.url;
 
                     const imageUrl = thumbnail 
+                        // ? `${base_url+thumbnail}` 
                         ? `http://localhost:8081${thumbnail}` 
                         : image 
-                        ? `http://localhost:8081${image}` 
+                        ? `${base_url+image}` 
                         : 'https://via.placeholder.com/800x450?text=No+Image';
 
                     return (

@@ -11,7 +11,9 @@ export default function Skills({ skills: skillsProp }) {
       setExtraSkills(skillsProp.filter(skill => skill.Dabbled));
     } else {
       // No props? Fallback to API
-      fetch('http://localhost:8081/api/skills-lists')
+      // const baseUrl = process.env.REACT_APP_API_URL;
+      const baseUrl = import.meta.env.VITE_API_URL;
+      fetch(`${baseUrl}/skills-lists`)
         .then(res => res.json())
         .then(data => {
           console.log('Fetched skills:', data);

@@ -9,8 +9,10 @@ export default function Projects() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-    // fetch('http://localhost:8081/api/projects?populate[Image]=*&populate[Thumbnail]=*')
-    fetch('http://localhost:8081/api/projects?populate=Image')
+    // const baseUrl = process.env.REACT_APP_API_URL;
+    const baseUrl = import.meta.env.VITE_API_URL;
+
+    fetch(`${baseUrl}/projects?populate=Image`)
         .then(res => res.json())
         .then(data => {
         console.log('Fetched projects:', data);
@@ -57,6 +59,7 @@ export default function Projects() {
                         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,350px))] gap-3 py-6 px-8">
 
                             {projects.map(project => {
+                                const base_url = import.meta.env.VITE_API_URL;
                                 const attrs = project;
                                 const documentId = attrs.documentId;
 
@@ -64,9 +67,9 @@ export default function Projects() {
                                 const image = attrs?.Image?.url;
 
                                 const imageUrl = thumbnail 
-                                    ? `http://localhost:8081${thumbnail}` 
+                                    ? `${thumbnail}` 
                                     : image 
-                                    ? `http://localhost:8081${image}` 
+                                    ? `${image}` 
                                     : 'https://via.placeholder.com/800x450?text=No+Image';
 
                                 return (

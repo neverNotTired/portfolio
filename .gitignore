@@ -15,6 +15,8 @@ deploy/*
 .env
 .env_local
 .env_production
+.env.local
+.env.production
 
 # Editor directories and files
 .vscode/*
