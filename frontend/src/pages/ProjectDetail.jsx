@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Skills from '../components/Skills';
 import Header from '../components/Header';
 import RichTextRenderer from '../components/RichTextRenderer';
 import Footer from '../components/Footer';
@@ -34,7 +35,7 @@ export default function Projects() {
         <div className="relative flex min-h-screen flex-col bg-[#111a22] dark group/design-root _overflow-x-hidden font-['Space Grotesk','Noto Sans',sans-serif']">
             <Header />
             <div className="layout-container flex h-full grow flex-col overflow-x-hidden">
-                <div className="px-4 sm:px-8 md:px-16 lg:px-40 xl:px-40 2xl:px-80 flex flex-1 justify-center py-5">
+                <div className="px-4 sm:px-8 md:px-16 lg:px-40 xl:px-40 2xl:px-80 flex flex-1 justify-center pt-8 pb-5">
                     <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
                         
                         <div id="top" className="@container">
@@ -48,14 +49,14 @@ export default function Projects() {
                                         }}
                                     >
                                         <div className="flex flex-col gap-2 text-left">
-                                            <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">{project?.Title}</h1>
+                                            <h1 className="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">{project?.Title}</h1>
                                             <h2 className="text-white text-m font-regular leading-normal @[480px]:text-base mt-2">{project.Intro}</h2>
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="flex min-h-[280px] flex-col gap-6 items-start justify-end px-8 pb-10">
+                                    <div className="flex min-h-[150px] flex-col gap-6 items-start justify-end px-4 pb-10">
                                         <div className="flex flex-col gap-2 text-left">
-                                            <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">{project?.Title}</h1>
+                                            <h1 className="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">{project?.Title}</h1>
                                             <h2 className="text-white text-m font-regular leading-normal @[480px]:text-base mt-2">{project.Intro}</h2>
                                         </div>
                                     </div>
@@ -68,7 +69,14 @@ export default function Projects() {
                         >
                             <div className="flex flex-1 flex-col justify-center">
                                 <RichTextRenderer content={project.Content} />
+
+                                 <p className="text-[#93adc8] text-sm font-bold leading-normal py-2">
+                                {project.LaunchDate 
+                                    ? new Date(attrs.LaunchDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
+                                    : 'Launch date TBD'}
+                                </p>
                             </div>
+                            <Skills skills={project.skills_lists} />
                              <Link to="/projects" className="flex min-w-[84px] max-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] mt-3 sm:mt-5">
                                 <span className="truncate">View Projects</span>
                             </Link>

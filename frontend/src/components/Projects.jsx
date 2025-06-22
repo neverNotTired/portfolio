@@ -1,23 +1,64 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+
 export default function Projects() {
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+    fetch('http://localhost:8081/api/projects?populate=Image&sort=createdAt:desc&pagination[limit]=3')
+        .then(res => res.json())
+        .then(data => {
+        console.log('Fetched projects:', data);
+        const parsed = data.data.map(item => item);
+        setProjects(parsed);
+        })
+        .catch(err => {
+        console.error('Error fetching projects:', err);
+        });
+    }, []);
+
     return (
         <div id="projects" className="bg-[#111a22]">
             <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">Projects</h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-8">
-                <div className="flex flex-col gap-3 pb-3">
-                    <div
-                        className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded"
-                        style={{
-                            backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg8dTHh8l8fTJsqCltPXmNoQNS3QO-H6xhIebW8bNLioS7uh0VCIjp7iwEjGjkKX0GPX8XWrSL7-gHbU3rzAQIsPt_WfY6MVcTP9_8xVlstxDOLFVDT5PI-A4uBNINt58Ccxx0J-3FI29niVlxhlaiRGkixmejqDMvdx8GecYw8blFDqiUwjpgWvVpaHxwh99ziQraBvF4tZwF8-oG_BNZYqiSo6hQbx_Pp6PEHPB5RGnEBVIXgvNlJlYFhtyMd_tu3_fzFR2h7t8")'
-                        }}
-                    ></div>
-                    <div>
-                        <p className="text-white text-base font-medium leading-normal my-3">E-commerce Platform</p>
-                        <p className="text-[#93adc8] text-sm font-normal leading-normal mb-0">
-                            Developed a full-featured e-commerce platform with user authentication, product management, and payment gateway integration.
-                        </p>
-                    </div>
-                </div>
-                <div className="flex flex-col gap-3 pb-3">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,350px))] gap-3 p-8">
+
+                {projects.map(project => {
+                    const attrs = project;
+                    const documentId = attrs.documentId;
+
+                    const thumbnail = attrs?.Thumbnail?.url;
+                    const image = attrs?.Image?.url;
+
+                    const imageUrl = thumbnail 
+                        ? `http://localhost:8081${thumbnail}` 
+                        : image 
+                        ? `http://localhost:8081${image}` 
+                        : 'https://via.placeholder.com/800x450?text=No+Image';
+
+                    return (
+                        <div key={project.id} className="flex flex-col gap-3 pb-3">
+                        <a href={`/project/${documentId}`}>
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xs pb-4"
+                            style={{ backgroundImage: `url(${imageUrl})` }}
+                        ></div>
+                        </a>
+                        <div>
+                                <a href={`/project/${documentId}`}>
+                            <p className="text-white text-base font-medium leading-normal">{attrs.Title}</p>
+                                </a>
+                            <p className="text-[#93adc8] text-sm font-bold leading-normal py-2">
+                            {attrs.LaunchDate 
+                                ? new Date(attrs.LaunchDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
+                                : 'Launch date TBD'}
+                            </p>
+                            <p className="text-[#93adc8] text-sm font-normal leading-normal">{attrs.Intro}</p>
+                        </div>
+                        </div>
+                    );
+                })}
+
+                {/* <div className="flex flex-col gap-3 pb-3">
                     <div
                         className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded"
                         style={{
@@ -40,12 +81,13 @@ export default function Projects() {
                         <p className="text-white text-base font-medium leading-normal my-3">Car Log App</p>
                         <p className="text-[#93adc8] text-sm font-normal leading-normal mb-0">Created a task management application with real-time updates and collaborative features.</p>
                     </div>
-                </div>
+                </div> */}
+
             </div>
             <div className="flex justify-start px-8 py-3">
-                <button className="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span className="truncate">View All Projects</span>
-                </button>
+                <Link to="/projects" className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                    <span className="truncate">View Projects</span>
+              </Link>
             </div>
         </div>
     )
