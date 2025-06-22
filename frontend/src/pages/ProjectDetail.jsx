@@ -42,12 +42,12 @@ export default function Projects() {
                         
                         <div id="top" className="@container">
                             <div className="@[480px]:p-8">
-                                {project?.Image?.data?.attributes?.url ? (
+                                {project?.Image?.url ? (
                                     <div
                                         className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-8 pb-10 @[480px]:px-8"
                                         style={{
                                             backgroundImage:
-                                                `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${project.Image.data.attributes.url})`,
+                                                `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(/cms/${project.Image.url})`,
                                         }}
                                     >
                                         <div className="flex flex-col gap-2 text-left">
@@ -74,7 +74,7 @@ export default function Projects() {
 
                                  <p className="text-[#93adc8] text-sm font-bold leading-normal py-2">
                                 {project.LaunchDate 
-                                    ? new Date(attrs.LaunchDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
+                                    ? new Date(project.LaunchDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
                                     : 'Launch date TBD'}
                                 </p>
                             </div>

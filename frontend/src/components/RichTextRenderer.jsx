@@ -42,7 +42,7 @@ const RichTextRenderer = ({ content }) => {
                 const level = block.level >= 1 && block.level <= 6 ? block.level : 2;
                 const HeadingTag = `h${level}`;
                 return (
-                    <HeadingTag key={index} className="text-white font-bold mb-3">
+                    <HeadingTag key={index} className="text-white font-bold my-3">
                         {getText(block.children || [])}
                     </HeadingTag>
                 );
@@ -55,7 +55,7 @@ const RichTextRenderer = ({ content }) => {
                         key={index}
                         className={`${
                             ListTag === 'ul' ? 'list-disc' : 'list-decimal'
-                        } pl-6 text-[#a0adba] text-sm mb-4`}
+                        } pl-6 text-[#a0adba] text-sm my-4`}
                     >
                         {(block.children || []).map((item, i) => {
                             if (item.type === 'list-item') {

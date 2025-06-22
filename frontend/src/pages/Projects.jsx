@@ -67,9 +67,9 @@ export default function Projects() {
                                 const image = attrs?.Image?.url;
 
                                 const imageUrl = thumbnail 
-                                    ? `${thumbnail}` 
+                                    ? `/cms/${thumbnail}` 
                                     : image 
-                                    ? `${image}` 
+                                    ? `/cms/${image}` 
                                     : 'https://via.placeholder.com/800x450?text=No+Image';
 
                                 return (
