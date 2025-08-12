@@ -413,13 +413,21 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Image: Schema.Attribute.Media<'images' | 'files'>;
+    Intro: Schema.Attribute.String;
+    Link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
+    Order: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    Thumbnail: Schema.Attribute.Media<'images' | 'files'>;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

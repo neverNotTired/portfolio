@@ -10,5 +10,40 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Intro": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Order": {
+      "type": "decimal"
+    },
+    "Date": {
+      "type": "date"
+    }
+  }
 }

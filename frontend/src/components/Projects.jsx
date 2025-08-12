@@ -25,7 +25,7 @@ export default function Projects() {
     return (
         <div id="projects" className="bg-[#111a22]">
             <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">Projects</h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,350px))] gap-3 p-8">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-3 p-8">
 
                 {projects.map(project => {
                     const attrs = project;

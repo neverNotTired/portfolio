@@ -77,6 +77,11 @@ export default function Projects() {
                                     ? new Date(project.LaunchDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
                                     : 'Launch date TBD'}
                                 </p>
+                                {project?.Link && (
+                                    <a href={project.Link} target="_blank" rel="noopener noreferrer" className="text-[#93adc8] text-sm font-bold leading-normal py-2">
+                                        <span className="truncate">View Live Project</span>
+                                    </a>
+                                )}
                             </div>
                             <Skills skills={project.skills_lists} />
                              <Link to="/projects" className="flex min-w-[84px] max-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-8 @[480px]:h-12 @[480px]:px-5 bg-[#1465b7] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] mt-3 sm:mt-5">

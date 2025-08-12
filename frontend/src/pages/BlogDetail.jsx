@@ -1,43 +1,85 @@
-import Header from '../components/Header';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Skills from '../components/Skills';
+import Header from '../components/Header';
+import RichTextRenderer from '../components/RichTextRenderer';
 import Footer from '../components/Footer';
 import GitGraph from '../components/Gitgraph';
 
-const content = "I am a results-driven web developer with a unique blend of self-taught programming skills and formal education. I have worked in the industry helping businesses create and maintain their websites, optimise for security, and deliver custom solutions tailored to their specific needs.";
+export default function Blogs() {
+  const { documentId } = useParams();
+  const [blog, setProject] = useState(null);
 
-export default function Resume() {
+    useEffect(() => {
+         const baseUrl = import.meta.env.VITE_API_URL;
+
+        if (!documentId) {
+            console.warn('documentId is undefined — fetch aborted');
+            console.log("💡 documentId from useParams:", documentId);
+            return;
+        }
+        fetch(`${baseUrl}/blogs?filters[documentId][$eq]=${documentId}&populate=*`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("📦 Full fetch response:", data);
+            if (Array.isArray(data.data) && data.data.length > 0) {
+            setProject(data.data[0]);
+            } else {
+            console.warn('No blog found with documentId:', documentId);
+            }
+        })
+    }, [documentId]);
+
+  if (!blog) return <p>Loading blog...</p>;
+
     return (
         <div className="relative flex min-h-screen flex-col bg-[#111a22] dark group/design-root _overflow-x-hidden font-['Space Grotesk','Noto Sans',sans-serif']">
             <Header />
             <div className="layout-container flex h-full grow flex-col overflow-x-hidden">
-                <div className="px-4 sm:px-8 md:px-16 lg:px-40 xl:px-40 2xl:px-80 flex flex-1 justify-center py-5">
+                <div className="px-4 sm:px-8 md:px-16 lg:px-40 xl:px-40 2xl:px-80 flex flex-1 justify-center pt-8 pb-5">
                     <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-                        <div className="flex flex-wrap justify-between items-center gap-3 p-4">
-                            <p className="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">
-                                John Taylor
-                            </p>
-                            <div
-                                className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24"
-                                style={{
-                                    backgroundImage:
-                                        'url("https://1.gravatar.com/avatar/6201b92f6ae52600d18d220e19238819d148544b7fdc51151c0bf6c8b20b7244")',
-                                        // 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKwtzFtMeq4rhiwhPjJvUOxMjTOwpeIAMYbwx3kdXRnVtoAxMVAGSJYWc0zf1P92H7PhICyUHBytk4tP5kd_Mw_qM-7HXsCtecw9q5BGdvl4pR4rHlJQxEau6EG9Oq7-N4H18itmlZ8Lg0i428pggnQElgcIp0p860ogfLkq56v_vZthIZANyjUQvhnbFpafkg3hizkdBrIPzANpb0HbGZ0J5qUzHyKJ1mLZLP7erchIblvwVCwMnxoLsRanXowAhmdc2aPbjW33U")',
-                                }}
-                            ></div>
-                        </div>
-
-                        {/* Professional Summary */}
-                        <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-8 pb-3 pt-10">
-                            Professional Summary
-                        </h2>
-                        <div
-                            className="flex flex-col-reverse sm:flex-row gap-0 bg-[#15191e] px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
-                        >
-                            <div className="flex flex-1 flex-col justify-center">
-                                <p className="text-[#a0adba] text-sm font-normal leading-normal">{content}</p>
+                        
+                        <div id="top" className="@container">
+                            <div className="@[480px]:p-8">
+                                {blog?.Image?.url ? (
+                                    <div
+                                        className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-8 pb-10 @[480px]:px-8"
+                                        style={{
+                                            backgroundImage:
+                                                `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(/cms/${blog.Image.url})`,
+                                        }}
+                                    >
+                                        <div className="flex flex-col gap-2 text-left">
+                                            <h1 className="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">{blog?.Title}</h1>
+                                            <h2 className="text-white text-m font-regular leading-normal @[480px]:text-base mt-2">{blog.Intro}</h2>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="flex min-h-[150px] flex-col gap-6 items-start justify-end px-4 pb-10">
+                                        <div className="flex flex-col gap-2 text-left">
+                                            <h1 className="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">{blog?.Title}</h1>
+                                            <h2 className="text-white text-m font-regular leading-normal @[480px]:text-base mt-2">{blog.Intro}</h2>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        
+
+                        <div
+                            className="flex flex-col sm:flex-col gap-0 px-8 pt-4 pb-8 justify-between mt-4 sm:mt-0 sm:gap-4"
+                        >
+                            <div className="flex flex-1 flex-col justify-center">
+                                <RichTextRenderer content={blog.Content} />
+
+                                 <p className="text-[#93adc8] text-sm font-bold leading-normal py-2">
+                                {blog.Date
+                                    ? new Date(blog.Date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                                    : ''}
+                                </p>
+                            </div>
+                        </div>
+
                         <hr className="mt-8 mb-14 border-t border-gray-700" />
                         <GitGraph />
                     </div>
